@@ -1,0 +1,9 @@
+parameters:
+    contentonthefly.controller.location.class: EzSystems\EzContentOnTheFlyBundle\Controller\LocationController
+
+services:
+    contentonthefly.controller.location:
+        class: %contentonthefly.controller.location.class%
+        arguments:
+            - @ezpublish.config.resolver
+            - @ezpublish.api.service.location

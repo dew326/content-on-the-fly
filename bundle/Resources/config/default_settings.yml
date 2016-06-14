@@ -1,0 +1,6 @@
+parameters:
+    ez_contentonthefly.default.content:
+        default:
+            location:
+                - 2     # Home
+                - 43    # Media
