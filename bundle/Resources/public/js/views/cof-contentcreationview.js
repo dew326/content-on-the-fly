@@ -36,6 +36,7 @@ YUI.add('cof-contentcreationview', function (Y) {
         SELECTOR_SUGGESTED_LOCATIONS = SELECTOR_CONTENT_CREACTION + '__suggested-locations',
         SELECTOR_SUGGESTED_ITEM = SELECTOR_SUGGESTED_LOCATIONS + '__item',
         SELECTOR_UDW_CONTAINER = '.ez-universaldiscovery-container',
+        SELECTOR_MAIN_CONTENT = '.ez-main-content',
         ATTR_DESCRIPTION = 'data-description',
         ATTR_ID = 'data-id',
         SELECTOR_EDIT_LOCATION_BUTTON = SELECTOR_BUTTON +  '--edit-location',
@@ -351,6 +352,13 @@ YUI.add('cof-contentcreationview', function (Y) {
             container.one(SELECTOR_CONTENT_CREATOR)
                      .setHTML(createContentView.render().get('container'))
                      .removeClass(CLASS_HIDDEN);
+
+            /**
+             * This scroll reset is needed because of bug in FireFox
+             *
+             * see: https://bugzilla.mozilla.org/show_bug.cgi?id=706792
+             */
+            createContentView.get('container').one(SELECTOR_MAIN_CONTENT).getDOMNode().scrollTop = 0;
 
             createContentView.set('active', true);
 
